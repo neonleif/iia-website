@@ -1,0 +1,360 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact - Nicolaj Schweitz Technical Tester">
+	<!-- Header -->
+	<section class="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h1 class="text-5xl font-bold mb-6">Let's Start a Conversation</h1>
+			<p class="text-xl opacity-90">
+				Ready to discuss your testing challenges? I'm here to help optimize your testing process 
+				and ensure your software quality meets the highest standards.
+			</p>
+		</div>
+	</section>
+
+	<!-- Contact Form & Info -->
+	<section class="py-20 bg-gray-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+				<!-- Contact Form -->
+				<div class="bg-white rounded-2xl p-8 shadow-lg">
+					<h2 class="text-3xl font-bold text-gray-900 mb-8">Send a Message</h2>
+					
+					<form class="space-y-6" action="#" method="POST">
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+							<div>
+								<label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+									First Name *
+								</label>
+								<input 
+									type="text" 
+									id="firstName" 
+									name="firstName" 
+									required
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+									placeholder="John"
+								>
+							</div>
+							<div>
+								<label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+									Last Name *
+								</label>
+								<input 
+									type="text" 
+									id="lastName" 
+									name="lastName" 
+									required
+									class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+									placeholder="Doe"
+								>
+							</div>
+						</div>
+						
+						<div>
+							<label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+								Email Address *
+							</label>
+							<input 
+								type="email" 
+								id="email" 
+								name="email" 
+								required
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+								placeholder="john.doe@company.com"
+							>
+						</div>
+						
+						<div>
+							<label for="company" class="block text-sm font-medium text-gray-700 mb-2">
+								Company/Organization
+							</label>
+							<input 
+								type="text" 
+								id="company" 
+								name="company"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+								placeholder="Your Company Name"
+							>
+						</div>
+						
+						<div>
+							<label for="projectType" class="block text-sm font-medium text-gray-700 mb-2">
+								Project Type
+							</label>
+							<select 
+								id="projectType" 
+								name="projectType"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+							>
+								<option value="">Select project type...</option>
+								<option value="test-automation">Test Automation Implementation</option>
+								<option value="technical-testing">Technical Testing</option>
+								<option value="agile-coaching">Agile Test Coaching</option>
+								<option value="api-testing">API Testing</option>
+								<option value="consultation">General Testing Consultation</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+						
+						<div>
+							<label for="budget" class="block text-sm font-medium text-gray-700 mb-2">
+								Estimated Budget Range
+							</label>
+							<select 
+								id="budget" 
+								name="budget"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+							>
+								<option value="">Select budget range...</option>
+								<option value="under-25k">Under 25,000 DKK</option>
+								<option value="25k-50k">25,000 - 50,000 DKK</option>
+								<option value="50k-100k">50,000 - 100,000 DKK</option>
+								<option value="100k-250k">100,000 - 250,000 DKK</option>
+								<option value="over-250k">Over 250,000 DKK</option>
+								<option value="ongoing">Ongoing Partnership</option>
+							</select>
+						</div>
+						
+						<div>
+							<label for="timeline" class="block text-sm font-medium text-gray-700 mb-2">
+								Project Timeline
+							</label>
+							<select 
+								id="timeline" 
+								name="timeline"
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+							>
+								<option value="">Select timeline...</option>
+								<option value="immediate">Immediate (Within 2 weeks)</option>
+								<option value="1-month">Within 1 month</option>
+								<option value="2-3-months">2-3 months</option>
+								<option value="flexible">Flexible timeline</option>
+								<option value="planning">Still planning</option>
+							</select>
+						</div>
+						
+						<div>
+							<label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+								Project Description *
+							</label>
+							<textarea 
+								id="message" 
+								name="message" 
+								rows="6" 
+								required
+								class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical"
+								placeholder="Please describe your testing challenges, current setup, and what you'd like to achieve. The more details you provide, the better I can understand how to help you."
+							></textarea>
+						</div>
+						
+						<button 
+							type="submit"
+							class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-lg font-bold hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+						>
+							Send Message
+						</button>
+					</form>
+				</div>
+				
+				<!-- Contact Information -->
+				<div>
+					<div class="bg-gradient-to-br from-gray-900 to-blue-900 text-white rounded-2xl p-8 mb-8">
+						<h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+						
+						<div class="space-y-6">
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+										<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold mb-1">Email</h3>
+									<p class="text-blue-200">nico@isitautomated.com</p>
+									<p class="text-sm text-blue-300 mt-1">Response within 24 hours</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold mb-1">Phone</h3>
+									<p class="text-blue-200">+45 5377 3508</p>
+									<p class="text-sm text-blue-300 mt-1">Available 9 AM - 5 PM CET</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold mb-1">Location</h3>
+									<p class="text-blue-200">Copenhagen, Denmark</p>
+									<p class="text-sm text-blue-300 mt-1">Available for remote & on-site work</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+									<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+									</svg>
+								</div>
+								<div>
+									<h3 class="font-semibold mb-1">LinkedIn</h3>
+									<a href="https://linkedin.com/in/schweitz" class="text-blue-200 hover:text-white transition-colors">
+										linkedin.com/in/schweitz
+									</a>
+									<p class="text-sm text-blue-300 mt-1">Professional network</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Why Work With Me -->
+					<div class="bg-white rounded-2xl p-8 shadow-lg">
+						<h3 class="text-2xl font-bold text-gray-900 mb-6">Why Work With Me?</h3>
+						
+						<div class="space-y-4">
+							<div class="flex items-start">
+								<div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+									<svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">10+ Years Experience</h4>
+									<p class="text-gray-600 text-sm">Proven track record across diverse industries</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+									<svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">Certified Professional</h4>
+									<p class="text-gray-600 text-sm">ISTQB & Certified Agile Tester credentials</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+									<svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">Full-Service Testing</h4>
+									<p class="text-gray-600 text-sm">From strategy to implementation and coaching</p>
+								</div>
+							</div>
+							
+							<div class="flex items-start">
+								<div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+									<svg class="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-semibold text-gray-900">Agile & Remote Ready</h4>
+									<p class="text-gray-600 text-sm">Seamless integration with your existing workflows</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Alternative Contact Methods -->
+	<section class="py-16 bg-white">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-3xl font-bold text-gray-900 mb-8">Prefer a Different Approach?</h2>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="p-6">
+					<div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+							<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Quick Email</h3>
+					<p class="text-gray-600 mb-4">Send a direct email for immediate response</p>
+					<a href="mailto:nico@isitautomated.com?subject=Testing Project Inquiry" class="text-blue-600 hover:text-blue-800 font-medium">
+						nico@isitautomated.com
+					</a>
+				</div>
+				
+				<div class="p-6">
+					<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Phone Call</h3>
+					<p class="text-gray-600 mb-4">Schedule a call to discuss your needs</p>
+					<a href="tel:+4553773508" class="text-green-600 hover:text-green-800 font-medium">
+						+45 5377 3508
+					</a>
+				</div>
+				
+				<div class="p-6">
+					<div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">LinkedIn</h3>
+					<p class="text-gray-600 mb-4">Connect professionally on LinkedIn</p>
+					<a href="https://linkedin.com/in/schweitz" target="_blank" rel="noopener" class="text-purple-600 hover:text-purple-800 font-medium">
+						Connect on LinkedIn
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	// Simple form validation and enhancement
+	document.addEventListener('DOMContentLoaded', function() {
+		const form = document.querySelector('form');
+		if (form) {
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				
+				// Get form data
+				const formData = new FormData(form);
+				const data = Object.fromEntries(formData);
+				
+				// Simple validation
+				if (!data.firstName || !data.lastName || !data.email || !data.message) {
+					alert('Please fill in all required fields.');
+					return;
+				}
+				
+				// Here you would typically send the data to a server
+				// For now, we'll just show a success message
+				alert('Thank you for your message! I will get back to you within 24 hours.');
+				
+				// Reset form
+				form.reset();
+			});
+		}
+	});
+</script>

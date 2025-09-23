@@ -1,0 +1,33 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+	icon?: string;
+	color?: 'blue' | 'green' | 'purple' | 'red';
+}
+
+const { title, description, icon = '📝', color = 'blue' } = Astro.props;
+
+const colorClasses = {
+	blue: 'from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700',
+	green: 'from-green-500 to-green-600 hover:from-green-600 hover:to-green-700',
+	purple: 'from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700',
+	red: 'from-red-500 to-red-600 hover:from-red-600 hover:to-red-700'
+};
+---
+
+<div class={`bg-gradient-to-r ${colorClasses[color]} rounded-lg p-6 text-white transform hover:scale-105 transition-all duration-200 shadow-lg`}>
+	<div class="flex items-center gap-4">
+		<div class="text-3xl" role="img" aria-label="ikon">
+			{icon}
+		</div>
+		<div>
+			<h3 class="text-xl font-bold mb-2">{title}</h3>
+			<p class="text-white/90 leading-relaxed">{description}</p>
+		</div>
+	</div>
+	
+	<div class="mt-4 pt-4 border-t border-white/20">
+		<slot />
+	</div>
+</div>

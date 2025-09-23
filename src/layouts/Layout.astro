@@ -1,0 +1,90 @@
+---
+import '../styles/global.css'
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Nicolaj Schweitz - Technical Tester & Test Automation Expert. Specialized in Agile Testing, API Testing, and UI Automation." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-50 text-gray-900 antialiased">
+		<header class="bg-white shadow-sm border-b">
+			<nav class="max-w-6xl mx-auto px-4 py-4">
+				<div class="flex items-center justify-between">
+					<div class="flex items-center gap-3">
+						<div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+							NS
+						</div>
+						<div>
+							<h1 class="text-xl font-bold text-gray-900">Nicolaj Schweitz</h1>
+							<p class="text-sm text-gray-600">Technical Tester</p>
+						</div>
+					</div>
+					<ul class="hidden md:flex gap-8">
+						<li><a href="/" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a></li>
+						<li><a href="/expertise" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Expertise</a></li>
+						<li><a href="/contact" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a></li>
+					</ul>
+					<div class="md:hidden">
+						<button class="text-gray-700 hover:text-blue-600">
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main class="min-h-screen">
+			<slot />
+		</main>
+
+		<footer class="bg-gray-900 text-white mt-20">
+			<div class="max-w-6xl mx-auto px-4 py-12">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div>
+						<div class="flex items-center gap-3 mb-4">
+							<div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xs">
+								NS
+							</div>
+							<span class="font-bold">Nicolaj Schweitz</span>
+						</div>
+						<p class="text-gray-400">Technical Tester & Test Automation Expert</p>
+					</div>
+					<div>
+						<h3 class="font-semibold mb-4">Services</h3>
+						<ul class="space-y-2 text-gray-400">
+							<li>Test Automation</li>
+							<li>Technical Testing</li>
+							<li>Agile Test Coaching</li>
+							<li>API Testing</li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="font-semibold mb-4">Contact</h3>
+						<div class="space-y-2 text-gray-400">
+							<p>nico@isitautomated.com</p>
+							<p>+45 5377 3508</p>
+							<p>Copenhagen, Denmark</p>
+						</div>
+					</div>
+				</div>
+				<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+					<p>&copy; 2025 Nicolaj Schweitz. All rights reserved.</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

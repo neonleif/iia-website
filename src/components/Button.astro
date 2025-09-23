@@ -1,0 +1,29 @@
+---
+export interface Props {
+	text: string;
+	href: string;
+	variant?: 'primary' | 'secondary' | 'outline';
+	size?: 'sm' | 'md' | 'lg';
+}
+
+const { text, href, variant = 'primary', size = 'md' } = Astro.props;
+
+const variants = {
+	primary: 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl',
+	secondary: 'bg-gray-600 text-white hover:bg-gray-700 shadow-lg hover:shadow-xl',
+	outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
+};
+
+const sizes = {
+	sm: 'px-4 py-2 text-sm',
+	md: 'px-6 py-3 text-base',
+	lg: 'px-8 py-4 text-lg'
+};
+---
+
+<a 
+	href={href}
+	class={`inline-block font-medium rounded-lg transition-all duration-200 transform hover:scale-105 ${variants[variant]} ${sizes[size]}`}
+>
+	{text}
+</a>

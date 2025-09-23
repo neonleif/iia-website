@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout title="Nicolaj Schweitz - Technical Tester & Test Automation Expert">
+	<!-- Hero Section -->
+	<section class="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<div class="flex items-center gap-2 mb-4">
+						<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+						<span class="text-sm text-green-600 font-medium">Available for new projects</span>
+					</div>
+					
+					<h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+						Technical Tester & 
+						<span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+							Test Automation Expert
+						</span>
+					</h1>
+					
+					<p class="text-xl text-gray-600 mb-8 leading-relaxed">
+						Over a decade of experience helping organizations optimize testing processes through 
+						<strong>Test Automation</strong>, <strong>Agile Methodologies</strong>, and <strong>Technical Testing</strong> 
+						across diverse industries.
+					</p>
+					
+					<div class="flex flex-col sm:flex-row gap-4 mb-8">
+						<Button text="Get In Touch" href="/contact" variant="primary" size="lg" />
+						<Button text="View My Expertise" href="/expertise" variant="outline" size="lg" />
+					</div>
+					
+					<div class="flex items-center gap-6 text-sm text-gray-600">
+						<div class="flex items-center gap-2">
+							<svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+							</svg>
+							<span>Copenhagen, Denmark</span>
+						</div>
+						<div class="flex items-center gap-2">
+							<svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+								<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+							</svg>
+							<span>nico@isitautomated.com</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="relative">
+					<div class="w-80 h-80 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-8xl font-bold mx-auto shadow-2xl">
+						NS
+					</div>
+					<div class="absolute -bottom-4 -right-4 w-24 h-24 bg-white rounded-full shadow-lg flex items-center justify-center">
+						<div class="text-center">
+							<div class="text-2xl font-bold text-gray-900">10+</div>
+							<div class="text-xs text-gray-600">Years</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Overview -->
+	<section class="py-20 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold text-gray-900 mb-4">What I Offer</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Comprehensive testing solutions to ensure your software meets the highest quality standards
+				</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center p-6 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
+					<div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Test Automation</h3>
+					<p class="text-gray-600">UI automation using Selenium WebDriver, API testing with Postman, and custom frameworks</p>
+				</div>
+				
+				<div class="text-center p-6 rounded-xl bg-green-50 hover:bg-green-100 transition-colors">
+					<div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Technical Testing</h3>
+					<p class="text-gray-600">In-depth technical analysis, exploratory testing, and integration testing across systems</p>
+				</div>
+				
+				<div class="text-center p-6 rounded-xl bg-purple-50 hover:bg-purple-100 transition-colors">
+					<div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">Agile Coaching</h3>
+					<p class="text-gray-600">Test coaching for teams, Scrum methodology, and Agile testing best practices</p>
+				</div>
+				
+				<div class="text-center p-6 rounded-xl bg-orange-50 hover:bg-orange-100 transition-colors">
+					<div class="w-16 h-16 bg-orange-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+						</svg>
+					</div>
+					<h3 class="text-xl font-semibold text-gray-900 mb-2">API Testing</h3>
+					<p class="text-gray-600">REST and SOAP web services testing, integration testing, and test data management</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Industries & Clients -->
+	<section class="py-20 bg-gray-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold text-gray-900 mb-4">Trusted by Leading Organizations</h2>
+				<p class="text-xl text-gray-600">
+					Extensive experience across diverse industries and complex technical environments
+				</p>
+			</div>
+			
+			<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+				<div class="text-center">
+					<div class="text-2xl font-bold text-gray-700">Nordea</div>
+					<div class="text-sm text-gray-500">Banking</div>
+				</div>
+				<div class="text-center">
+					<div class="text-2xl font-bold text-gray-700">ATP</div>
+					<div class="text-sm text-gray-500">Pension</div>
+				</div>
+				<div class="text-center">
+					<div class="text-2xl font-bold text-gray-700">Novo Nordisk</div>
+					<div class="text-sm text-gray-500">Healthcare</div>
+				</div>
+				<div class="text-center">
+					<div class="text-2xl font-bold text-gray-700">Unity</div>
+					<div class="text-sm text-gray-500">Gaming</div>
+				</div>
+				<div class="text-center">
+					<div class="text-2xl font-bold text-gray-700">Nets</div>
+					<div class="text-sm text-gray-500">Fintech</div>
+				</div>
+				<div class="text-center">
+					<div class="text-2xl font-bold text-gray-700">Laerdal</div>
+					<div class="text-sm text-gray-500">E-learning</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action -->
+	<section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+		<div class="max-w-4xl mx-auto px-4 text-center text-white">
+			<h2 class="text-4xl font-bold mb-6">Ready to Elevate Your Testing Process?</h2>
+			<p class="text-xl mb-8 opacity-90">
+				Let's discuss how I can help optimize your testing strategy and ensure your software quality meets the highest standards.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+					Start a Conversation
+				</a>
+				<a href="mailto:nico@isitautomated.com" class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-colors">
+					Send Email Directly
+				</a>
+			</div>
+			
+			<div class="mt-12 pt-8 border-t border-white/20">
+				<div class="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm opacity-90">
+					<div class="flex items-center gap-2">
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+						</svg>
+						<span>+45 5377 3508</span>
+					</div>
+					<div class="flex items-center gap-2">
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+						</svg>
+						<span>Copenhagen, Denmark</span>
+					</div>
+					<div class="flex items-center gap-2">
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
+						</svg>
+						<a href="https://linkedin.com/in/schweitz" class="hover:underline">LinkedIn Profile</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
