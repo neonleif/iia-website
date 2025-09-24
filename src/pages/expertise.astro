@@ -338,129 +338,131 @@ import { Icon } from 'astro-icon/components';
 		<div class="max-w-6xl mx-auto px-4">
 			<h2 class="text-4xl font-bold text-center text-gray-900 mb-16">Tools & Technologies</h2>
 			
-			<div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-6">
-				<!-- Programming Languages -->
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:csharp" class="text-4xl mb-2 text-purple-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">C#</span>
-				</div>
+			<!-- Tools & Technologies Container with Dark Background -->
+			<div class="bg-gradient-to-br from-gray-900 to-blue-900 rounded-2xl p-8">
+				<div class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-6">
+					<!-- Programming Languages -->
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:csharp" class="text-2xl text-gray-400 group-hover:text-purple-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">C#</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:openjdk" class="text-2xl text-gray-400 group-hover:text-orange-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Java</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:typescript" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">TypeScript</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:javascript" class="text-2xl text-gray-400 group-hover:text-yellow-500 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">JavaScript</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:mysql" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">SQL</span>
+					</div>
 				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:java" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Java</span>
+					<!-- Tools & Frameworks -->
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:selenium" class="text-2xl text-gray-400 group-hover:text-green-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Selenium</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:nodedotjs" class="text-2xl text-gray-400 group-hover:text-green-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Node.js</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:git" class="text-2xl text-gray-400 group-hover:text-orange-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Git</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:microsoftazure" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Azure</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:jira" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Jira</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:postman" class="text-2xl text-gray-400 group-hover:text-orange-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Postman</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:cucumber" class="text-2xl text-gray-400 group-hover:text-green-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Cucumber</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:junit5" class="text-2xl text-gray-400 group-hover:text-red-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">JUnit</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:confluence" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Confluence</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:microsoft" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Office 365</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:microsoftteams" class="text-2xl text-gray-400 group-hover:text-purple-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Teams</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:microsoftsharepoint" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">SharePoint</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:visualstudio" class="text-2xl text-gray-400 group-hover:text-purple-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Visual Studio</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:intellijidea" class="text-2xl text-gray-400 group-hover:text-red-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">IntelliJ IDEA</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:visualstudiocode" class="text-2xl text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">VS Code</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:microsoftsqlserver" class="text-2xl text-gray-400 group-hover:text-red-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">SQL Server</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:swagger" class="text-2xl text-gray-400 group-hover:text-green-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Swagger</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:dotnet" class="text-2xl text-gray-400 group-hover:text-purple-600 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">.NET</span>
+					</div>
+					
+					<div class="flex flex-col items-center justify-center w-20 h-20 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300 group">
+						<Icon name="simple-icons:unity" class="text-2xl text-gray-400 group-hover:text-gray-800 transition-colors duration-300" />
+						<span class="text-xs text-gray-600 text-center font-medium mt-2">Unity</span>
+					</div>
 				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:typescript-icon" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">TypeScript</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:javascript" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">JavaScript</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:mysql" class="text-4xl mb-2 text-blue-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">SQL</span>
-				</div>
-				
-				<!-- Tools & Frameworks -->
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:selenium" class="text-4xl mb-2 text-green-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">Selenium</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:nodejs" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Node.js</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:git-icon" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Git</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:microsoft-azure" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Azure</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:jira" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Jira</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:postman" class="text-4xl mb-2 text-orange-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">Postman</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:cucumber" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Cucumber</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:junit5" class="text-4xl mb-2 text-red-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">JUnit</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="logos:confluence" class="text-4xl mb-2" />
-					<span class="text-xs text-gray-600 text-center font-medium">Confluence</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:microsoft" class="text-4xl mb-2 text-blue-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">Office 365</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:microsoftteams" class="text-4xl mb-2 text-purple-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">Teams</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:microsoftsharepoint" class="text-4xl mb-2 text-blue-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">SharePoint</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:visualstudio" class="text-4xl mb-2 text-purple-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">Visual Studio</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:intellijidea" class="text-4xl mb-2 text-red-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">IntelliJ IDEA</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:visualstudiocode" class="text-4xl mb-2 text-blue-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">VS Code</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:microsoftsqlserver" class="text-4xl mb-2 text-red-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">SQL Server</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:swagger" class="text-4xl mb-2 text-green-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">Swagger</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:dotnet" class="text-4xl mb-2 text-purple-600" />
-					<span class="text-xs text-gray-600 text-center font-medium">.NET</span>
-				</div>
-				
-				<div class="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-					<Icon name="simple-icons:unity" class="text-4xl mb-2 text-gray-800" />
-					<span class="text-xs text-gray-600 text-center font-medium">Unity</span>
-				</div>
-				
 			</div>
 		</div>
 	</section>
@@ -478,9 +480,9 @@ import { Icon } from 'astro-icon/components';
 			
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
 				<!-- AI Tools & Platforms -->
-				<div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
+				<div class="bg-gradient-to-br from-blue-50 to-gray-50 rounded-2xl p-8">
 					<div class="flex items-center mb-6">
-						<div class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+						<div class="w-12 h-12 bg-gradient-to-br from-gray-900 to-blue-900 rounded-lg flex items-center justify-center mr-4">
 							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
 							</svg>
@@ -508,9 +510,9 @@ import { Icon } from 'astro-icon/components';
 				</div>
 
 				<!-- AI Applications -->
-				<div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
+				<div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8">
 					<div class="flex items-center mb-6">
-						<div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center mr-4">
+						<div class="w-12 h-12 bg-gradient-to-br from-gray-900 to-blue-900 rounded-lg flex items-center justify-center mr-4">
 							<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
 							</svg>
