@@ -179,7 +179,7 @@ describe('Navigation and Cross-Page Tests', () => {
                 const loadTime = Date.now() - startTime;
                 
                 console.log(`${name} page loaded in ${loadTime}ms`);
-                expect(loadTime).toBeLessThan(10000); // 10 seconds max
+                expect(loadTime).toBeLessThan(2000); // 2 seconds max for good UX
             }
         });
 

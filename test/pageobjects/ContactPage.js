@@ -59,92 +59,62 @@ class ContactPage extends Page {
         };
     }
 
-    /**
-     * Navigate to contact page
-     */
     async open() {
         await super.open('/contact');
         await this.waitForPageLoad();
     }
 
-    /**
-     * Get page title element
-     */
     async getPageTitle() {
         return await this.waitForElementByXPath(this.selectors.pageTitle);
     }
 
-    /**
-     * Fill in first name
-     */
     async fillFirstName(firstName) {
         const input = await this.waitForElementByXPath(this.selectors.firstNameInput);
         await input.clearValue();
         await input.setValue(firstName);
     }
 
-    /**
-     * Fill in last name
-     */
     async fillLastName(lastName) {
         const input = await this.waitForElementByXPath(this.selectors.lastNameInput);
         await input.clearValue();
         await input.setValue(lastName);
     }
 
-    /**
-     * Fill in email
-     */
     async fillEmail(email) {
         const input = await this.waitForElementByXPath(this.selectors.emailInput);
         await input.clearValue();
         await input.setValue(email);
     }
 
-    /**
-     * Fill in company
-     */
     async fillCompany(company) {
         const input = await this.waitForElementByXPath(this.selectors.companyInput);
         await input.clearValue();
         await input.setValue(company);
     }
 
-    /**
-     * Select project type
-     */
     async selectProjectType(value) {
         const select = await this.waitForElementByXPath(this.selectors.projectTypeSelect);
         await select.selectByAttribute('value', value);
     }
 
-    /**
-     * Select timeline
-     */
     async selectTimeline(value) {
         const select = await this.waitForElementByXPath(this.selectors.timelineSelect);
         await select.selectByAttribute('value', value);
     }
 
-    /**
-     * Fill in message
-     */
     async fillMessage(message) {
         const textarea = await this.waitForElementByXPath(this.selectors.messageTextarea);
         await textarea.clearValue();
         await textarea.setValue(message);
     }
 
-    /**
-     * Submit the form
-     */
     async submitForm() {
         const submitBtn = await this.waitForClickable(this.selectors.submitButton);
         await submitBtn.click();
     }
 
     /**
-     * Fill complete form with test data
+     * Fills form with test data, merging with provided overrides
      */
     async fillCompleteForm(formData = {}) {
         const defaultData = {
@@ -168,17 +138,11 @@ class ContactPage extends Page {
         await this.fillMessage(data.message);
     }
 
-    /**
-     * Check if form is present
-     */
     async isFormPresent() {
         const form = await this.getElementByXPath(this.selectors.contactForm);
         return await form.isExisting();
     }
 
-    /**
-     * Check if success message is displayed
-     */
     async isSuccessMessageDisplayed() {
         try {
             const successMsg = await this.getElementByXPath(this.selectors.successMessage);
@@ -188,9 +152,6 @@ class ContactPage extends Page {
         }
     }
 
-    /**
-     * Check if error message is displayed
-     */
     async isErrorMessageDisplayed() {
         try {
             const errorMsg = await this.getElementByXPath(this.selectors.errorMessage);
@@ -200,9 +161,6 @@ class ContactPage extends Page {
         }
     }
 
-    /**
-     * Check if loading state is active
-     */
     async isLoadingStateActive() {
         try {
             const loadingText = await this.getElementByXPath(this.selectors.loadingText);
@@ -212,22 +170,16 @@ class ContactPage extends Page {
         }
     }
 
-    /**
-     * Get email link element
-     */
     async getEmailLink() {
         return await this.waitForElementByXPath(this.selectors.emailLink);
     }
 
-    /**
-     * Get LinkedIn link element
-     */
     async getLinkedInLink() {
         return await this.waitForElementByXPath(this.selectors.linkedinLink);
     }
 
     /**
-     * Verify all form fields are present
+     * Returns object with existence status of all form fields
      */
     async verifyFormFields() {
         const firstName = await this.getElementByXPath(this.selectors.firstNameInput);
@@ -252,22 +204,17 @@ class ContactPage extends Page {
     }
 
     /**
-     * Verify required field validation
+     * Tests browser validation by attempting to submit empty form
      */
     async checkRequiredFieldValidation() {
-        // Try to submit empty form
         await this.submitForm();
         
-        // Check if browser validation prevents submission
         const firstNameInput = await this.getElementByXPath(this.selectors.firstNameInput);
         const isValid = await browser.execute((element) => element.checkValidity(), firstNameInput);
         
         return !isValid; // Should return true if validation is working (form is invalid)
     }
 
-    /**
-     * Get all project type options
-     */
     async getProjectTypeOptions() {
         const select = await this.waitForElementByXPath(this.selectors.projectTypeSelect);
         const options = await select.$$('option');
@@ -283,9 +230,6 @@ class ContactPage extends Page {
         return optionTexts;
     }
 
-    /**
-     * Get all timeline options
-     */
     async getTimelineOptions() {
         const select = await this.waitForElementByXPath(this.selectors.timelineSelect);
         const options = await select.$$('option');

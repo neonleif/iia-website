@@ -1,60 +1,60 @@
-# Komplet Test Suite til IIA Website 🧪
+# Complete Test Suite for IIA Website 🧪
 
-## Oversigt
+## Overview
 
-Denne test suite implementerer **omfattende end-to-end testing** af IIA website med fokus på kontaktformular funktionalitet, navigation og indhold validering. Suiten er bygget med **WebDriverIO**, **Mocha framework** og **Page Object Model** arkitektur.
+A production-ready end-to-end test suite for the IIA Technical Tester website, implementing comprehensive testing across all pages and functionality using WebDriverIO, Mocha, and the Page Object Model.
 
-## ✅ Implementeret Test Coverage
+## ✅ Implemented Test Coverage
 
-### 🎯 Kontaktformular Tests (19 tests)
-- **Form struktur validering**: Alle formularfelter, labels og knapper
-- **Form validering**: Påkrævede felter, email format, browser validering
-- **Form funktionalitet**: Udfyldning, dropdown options, submit handling
-- **Spam beskyttelse**: Honeypot field validering
-- **Responsivt design**: Form funktionalitet på mobile/tablet
+### 🎯 Contact Form Testing (19 tests)
+- **Form structure validation**: All form fields, labels and buttons
+- **Form validation**: Required fields, email format, browser validation
+- **Form functionality**: Form filling, dropdown selections, submission handling
+- **Spam protection**: Honeypot field validation
+- **Responsive behavior**: Form functionality across mobile/tablet viewports
 
-### 🧭 Navigation og Links (8 tests)
+### 🧭 Navigation and Links (8 tests)
 - **Inter-page navigation**: Home → Contact, Expertise → Contact
-- **Eksterne links**: LinkedIn, email links konsistens
-- **URL struktur**: Clean URLs og SEO validering
-- **Browser navigation**: Back/forward funktionalitet
+- **External links**: LinkedIn, email links consistency
+- **URL structure**: Clean URLs and SEO validation
+- **Browser navigation**: Back/forward functionality
 
-### 📄 Indhold Validering (25+ tests)
-- **Side struktur**: HTML validering, branding konsistens
-- **Nøgleord test**: Technical keywords, client navne, services
+### 📄 Content Validation (25+ tests)
+- **Page structure**: HTML validation, branding consistency
+- **Keyword testing**: Technical keywords, client names, services
 - **Page-specific content**: Hero sections, certifications, AI content
 - **Meta information**: Titles, descriptions, viewport tags
 
-### 📱 Responsivt Design (6 tests)
-- **Viewport tests**: Desktop (1920x1080), Tablet (768x1024), Mobile (375x667)
-- **Content accessibility**: Element visibility på alle størrelser
-- **Form functionality**: Bibeholder funktionalitet på små skærme
+### 📱 Responsive Design (6 tests)
+- **Viewport testing**: Desktop (1920x1080), Tablet (768x1024), Mobile (375x667)
+- **Content accessibility**: Element visibility across all screen sizes
+- **Form functionality**: Maintains functionality on small screens
 
-## 🏗️ Test Arkitektur
+## 🏗️ Test Architecture
 
 ### Page Object Model
 ```
 test/pageobjects/
-├── Page.js           # Base class med fælles utilities
-├── HomePage.js       # Home page med hero, services, clients
-├── ContactPage.js    # Contact page med form functionality
-└── ExpertisePage.js  # Expertise page med content sections
+├── Page.js           # Base class with shared utilities
+├── HomePage.js       # Home page with hero, services, clients
+├── ContactPage.js    # Contact page with form functionality
+└── ExpertisePage.js  # Expertise page with content sections
 ```
 
-### XPath Locator Strategi
+### XPath Locator Strategy
 ```javascript
-// Text-baserede selectors (robust)
+// Text-based selectors - chosen for stability across layout changes
 heroTitle: '//h1[contains(text(), "Technical Tester")]'
 
-// Attribut-baserede selectors (præcise)
+// Attribute-based selectors - precise targeting
 contactForm: '//form[@id="contact-form"]'
 emailInput: '//input[@id="email"]'
 
-// Kombinerede selectors (specifikke)
+// Combined selectors - specificity to avoid false matches
 contactButton: '//a[@href="/contact" and contains(text(), "Start a Conversation")]'
 ```
 
-### Test Organisering
+### Test Organization
 ```
 test/specs/
 ├── home.test.js      # Home page tests (20 tests)
@@ -66,7 +66,7 @@ test/specs/
 
 ## 🚀 Test Execution
 
-### Hurtig Validering (Simple Tests)
+### Quick Validation (Simple Tests)
 ```bash
 npm run test:simple
 ```
@@ -81,19 +81,19 @@ npm run test:simple
 🎉 All tests passed!
 ```
 
-### Fuld Browser Automation
+### Full Browser Automation
 ```bash
-# Firefox (anbefalet for CI/CD)
+# Firefox - recommended for CI/CD due to better stability
 npx wdio wdio.simple.conf.js
 
-# Specifik test fil
+# Specific test file
 npx wdio wdio.simple.conf.js --spec=test/specs/contact.test.js
 
 # Minimal smoke test
 npx wdio wdio.simple.conf.js --spec=test/specs/minimal.test.js
 ```
 
-### Test Resultater
+### Test Results
 ```
 Spec Files: 1 passed, 0 failed, 1 total
 ✓ 16 passing tests
@@ -104,29 +104,29 @@ Spec Files: 1 passed, 0 failed, 1 total
 - Responsive behavior
 ```
 
-## 📋 Detaljeret Test Dækning
+## 📋 Detailed Test Coverage
 
-### Kontaktformular Validering
+### Contact Form Validation
 
-#### Form Felter
+#### Form Fields
 ```javascript
-✅ firstName    - Påkrævet text field
-✅ lastName     - Påkrævet text field  
-✅ email        - Email type med validation
+✅ firstName    - Required text field
+✅ lastName     - Required text field  
+✅ email        - Email type with validation
 ✅ company      - Optional text field
-✅ projectType  - Dropdown med options
-✅ timeline     - Dropdown med options
-✅ message      - Påkrævet textarea
-✅ submit       - Submit button med loading state
+✅ projectType  - Dropdown with options
+✅ timeline     - Dropdown with options
+✅ message      - Required textarea
+✅ submit       - Submit button with loading state
 ```
 
-#### Dropdown Options Validering
+#### Dropdown Options Validation
 ```javascript
-// Project Type Options
+// Project Type Options - business-focused categories
 ["Select project type...", "Test Automation Implementation", 
  "Technical Testing", "Agile Test Coaching", "API Testing"]
 
-// Timeline Options  
+// Timeline Options - realistic project planning timeframes
 ["Select timeline...", "Immediate (Within 2 weeks)", 
  "Within 1 month", "2-3 months", "Flexible timeline", "Still planning"]
 ```
@@ -144,32 +144,35 @@ Spec Files: 1 passed, 0 failed, 1 total
 
 #### Home Page Keywords
 ```javascript
+// Core professional identity and client validation
 ['Technical Tester', 'Test Automation Expert', 'Available for new projects',
  'Unity', 'Nets', 'Laerdal', 'Start a Conversation']
 ```
 
 #### Contact Page Keywords
 ```javascript
+// Call-to-action and engagement messaging
 ['Let\'s Start a Conversation', 'Ready to discuss your testing challenges',
  'Quick Email', 'Connect on LinkedIn', 'Project Description']
 ```
 
 #### Expertise Page Keywords
 ```javascript
+// Technical competencies and certifications
 ['Technical Expertise', 'Core Competencies', 'Test Automation',
  'Selenium WebDriver', 'ISTQB Foundation', 'AI-Enhanced Testing']
 ```
 
-### Navigation Links Validering
+### Navigation Links Validation
 
-#### Eksterne Links
+#### External Links
 ```javascript
 ✅ LinkedIn: https://linkedin.com/in/schweitz (target="_blank")
 ✅ Email: mailto:nico@isitautomated.com  
 ✅ Phone: +45 5377 3508
 ```
 
-#### Interne Links
+#### Internal Links
 ```javascript
 ✅ Home → Contact navigation
 ✅ Expertise → Contact navigation
@@ -177,10 +180,11 @@ Spec Files: 1 passed, 0 failed, 1 total
 ✅ Call-to-action buttons
 ```
 
-## 🔧 Browser Konfiguration
+## 🔧 Browser Configuration
 
-### Firefox (Anbefalet)
+### Firefox (Recommended)
 ```javascript
+// Chosen for better CI/CD stability and consistent rendering
 capabilities: [{
     browserName: 'firefox',
     'moz:firefoxOptions': {
@@ -191,6 +195,7 @@ capabilities: [{
 
 ### Chrome (Alternative)
 ```javascript
+// Alternative option - requires more memory management
 capabilities: [{
     browserName: 'chrome', 
     'goog:chromeOptions': {
@@ -200,14 +205,14 @@ capabilities: [{
 }]
 ```
 
-## 📊 Test Statistikker
+## 📊 Test Statistics
 
-### Samlede Test Metrics
-- **Total Tests**: 79+ individuelle test cases
+### Overall Test Metrics
+- **Total Tests**: 79+ individual test cases
 - **Page Objects**: 4 comprehensive models
 - **XPath Selectors**: 50+ robust locators
 - **Test Files**: 5 organized specifications
-- **Coverage Areas**: 4 major funktionalitet områder
+- **Coverage Areas**: 4 major functionality areas
 
 ### Success Rate
 ```
@@ -217,30 +222,30 @@ capabilities: [{
 ✅ Content Tests: 100% (all keywords and structure validated)
 ```
 
-## 🛠️ Fejlfinding og Optimering
+## 🛠️ Troubleshooting and Optimization
 
-### Almindelige Issues
-1. **Browser Driver Downloads**: Løst ved at bruge system Firefox
-2. **Timing Issues**: Implementeret robust wait strategies  
-3. **Element Location**: XPath selectors er mere stabile end CSS
-4. **Form Submission**: Mocked for test environment
+### Common Issues and Solutions
+1. **Browser Driver Downloads**: Resolved by using system Firefox
+2. **Timing Issues**: Implemented robust wait strategies  
+3. **Element Location**: XPath selectors chosen over CSS for stability
+4. **Form Submission**: Mocked for test environment safety
 
-### Performance Optimering
+### Performance Optimization
 ```javascript
-// Timeout konfiguration
+// Timeout configuration - balanced for stability vs speed
 waitforTimeout: 10000
 connectionRetryTimeout: 90000
 
-// Headless mode for hastighed
+// Headless mode for CI/CD performance
 args: ['--headless', '--no-sandbox']
 
-// Static server for lokal testing
+// Static server for isolated testing
 baseUrl: 'http://localhost:4000'
 ```
 
 ## 🚀 CI/CD Integration
 
-### GitHub Actions Klar
+### GitHub Actions Ready
 ```yaml
 - name: Run E2E Tests
   run: |
@@ -252,35 +257,35 @@ baseUrl: 'http://localhost:4000'
 
 ### Docker Support
 - Headless browser modes
-- No sandbox flags
+- No sandbox flags for container environments
 - Xvfb for display handling
-- Robust error handling
+- Robust error handling and cleanup
 
 ## 📚 Test Documentation
 
-### Komplet Documentation
-- `TEST_SETUP.md` - Detaljeret setup guide
+### Complete Documentation
+- `TEST_SETUP.md` - Detailed setup guide
 - `test/README.md` - Test execution instructions  
-- `TEST_SUITE_COMPLETE.md` - Dette dokument
-- Inline kommentarer i alle test filer
+- `TEST_SUITE_COMPLETE.md` - This comprehensive overview
+- Inline comments explaining design decisions in test files
 
 ### Page Object Documentation
-Hver page object har:
+Each page object includes:
 - Comprehensive XPath selector maps
 - Utility methods for common actions
 - Content validation helpers
 - Responsive design test support
 
-## 🎉 Konklusion
+## 🎉 Conclusion
 
-Denne test suite leverer **production-ready end-to-end testing** for IIA website med:
+This test suite delivers **production-ready end-to-end testing** for the IIA website with:
 
-✅ **Komplet kontaktformular testing** - Alle felter, validering, submission  
-✅ **Robust XPath locators** - Text-baserede, stabile selectors  
-✅ **Page Object Model** - Maintainable, reusable code struktur  
+✅ **Complete contact form testing** - All fields, validation, submission  
+✅ **Robust XPath locators** - Text-based, stable selectors  
+✅ **Page Object Model** - Maintainable, reusable code structure  
 ✅ **Cross-browser support** - Firefox/Chrome compatibility  
-✅ **Responsivt design testing** - Mobile/tablet validation  
+✅ **Responsive design testing** - Mobile/tablet validation  
 ✅ **CI/CD ready** - Headless modes, error handling  
-✅ **Comprehensive coverage** - 79+ test cases på tværs af alle sider  
+✅ **Comprehensive coverage** - 79+ test cases across all pages  
 
-Test suiten er klar til produktionsbrug og kan let udvides med yderligere test cases efter behov.
+The test suite is ready for production use and can easily be extended with additional test cases as needed.
