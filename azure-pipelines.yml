@@ -1,0 +1,107 @@
+# Azure DevOps Pipeline for IIA Technical Tester Website
+# Deploys Astro site to Azure Static Web Apps
+
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    exclude:
+    - README.md
+    - docs/*
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Azure Static Web App details
+  azureStaticWebAppsName: 'iia'
+  resourceGroupName: 'iia-website'
+  buildConfiguration: 'production'
+
+stages:
+- stage: BuildAndTest
+  displayName: 'Build and Test'
+  jobs:
+  - job: BuildJob
+    displayName: 'Build and Test Job'
+    steps:
+    
+    # Setup Node.js
+    - task: NodeTool@0
+      displayName: 'Setup Node.js'
+      inputs:
+        versionSpec: '18.x'
+    
+    # Cache node_modules for faster builds
+    - task: Cache@2
+      displayName: 'Cache node_modules'
+      inputs:
+        key: 'npm | "$(Agent.OS)" | package-lock.json'
+        restoreKeys: 'npm | "$(Agent.OS)"'
+        path: node_modules
+    
+    # Install dependencies
+    - script: |
+        npm ci
+      displayName: 'Install dependencies'
+    
+    # Build the Astro site
+    - script: |
+        npm run build
+      displayName: 'Build Astro site'
+    
+    # Run simple validation tests
+    - script: |
+        npm run test:simple
+      displayName: 'Run validation tests'
+      continueOnError: true
+    
+    # Publish build artifacts
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish build artifacts'
+      inputs:
+        PathtoPublish: 'dist'
+        ArtifactName: 'website-build'
+        publishLocation: 'Container'
+
+- stage: Deploy
+  displayName: 'Deploy to Azure Static Web Apps'
+  dependsOn: BuildAndTest
+  condition: succeeded()
+  jobs:
+  - deployment: DeployJob
+    displayName: 'Deploy to Azure Static Web Apps'
+    environment: 'production'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          
+          # Download build artifacts
+          - task: DownloadBuildArtifacts@0
+            displayName: 'Download build artifacts'
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'website-build'
+              downloadPath: '$(System.ArtifactsDirectory)'
+          
+          # Deploy to Azure Static Web Apps
+          - task: AzureStaticWebApp@0
+            displayName: 'Deploy to Azure Static Web Apps'
+            inputs:
+              # You need to create a service connection in ADO and reference it here
+              azureSubscription: 'YOUR_SERVICE_CONNECTION_NAME'  # Replace with your service connection
+              app_location: '$(System.ArtifactsDirectory)/website-build'
+              output_location: ''
+              azure_static_web_apps_api_token: '$(AZURE_STATIC_WEB_APPS_API_TOKEN)'  # Set this in pipeline variables
+
+# Optional: Run full test suite on schedule
+schedules:
+- cron: "0 2 * * *"  # Daily at 2 AM UTC
+  displayName: 'Daily full test run'
+  branches:
+    include:
+    - main
+  always: false
