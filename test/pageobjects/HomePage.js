@@ -12,7 +12,6 @@ class HomePage extends Page {
             // Hero section
             heroTitle: '//h1[contains(text(), "Technical Tester")]',
             heroSubtitle: '//span[contains(text(), "Test Automation Expert")]',
-            availabilityStatus: '//span[contains(text(), "Available for new projects")]',
             
             // Services section
             technicalTestingCard: '//h3[text()="Technical Testing"]',
@@ -47,10 +46,6 @@ class HomePage extends Page {
 
     async getHeroSubtitle() {
         return await this.waitForElementByXPath(this.selectors.heroSubtitle);
-    }
-
-    async getAvailabilityStatus() {
-        return await this.waitForElementByXPath(this.selectors.availabilityStatus);
     }
 
     async areServiceCardsPresent() {
@@ -98,14 +93,12 @@ class HomePage extends Page {
     async verifyPageElements() {
         const heroTitle = await this.getHeroTitle();
         const heroSubtitle = await this.getHeroSubtitle();
-        const availability = await this.getAvailabilityStatus();
         const servicesPresent = await this.areServiceCardsPresent();
         const clientsPresent = await this.areClientsPresent();
         
         return {
             heroTitle: await heroTitle.isDisplayed(),
             heroSubtitle: await heroSubtitle.isDisplayed(),
-            availability: await availability.isDisplayed(),
             servicesPresent,
             clientsPresent
         };

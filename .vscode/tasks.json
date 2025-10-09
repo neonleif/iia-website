@@ -8,6 +8,74 @@
 			"isBackground": true,
 			"problemMatcher": [],
 			"group": "build"
+		},
+		{
+			"label": "Run WDIO Test Suite",
+			"type": "shell",
+			"command": "npx wdio wdio.simple.conf.js",
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Run Simple Test Suite",
+			"type": "shell",
+			"command": "npm run test:simple",
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Run WDIO Contact Tests",
+			"type": "shell",
+			"command": "npx wdio wdio.simple.conf.js --spec=test/specs/contact.test.js",
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Run WDIO Minimal Test",
+			"type": "shell",
+			"command": "npx wdio wdio.simple.conf.js --spec=test/specs/minimal.test.js",
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "Build and Test Complete",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"npm: build",
+				"Run Simple Test Suite",
+				"Run WDIO Test Suite"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			}
 		}
 	]
 }

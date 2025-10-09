@@ -1,0 +1,18 @@
+{
+    "mochaExplorer.files": "test/specs/{unit,simple}.test.js",
+    "mochaExplorer.timeout": 30000,
+    "mochaExplorer.nodePath": "/usr/local/bin/node",
+    "mochaExplorer.mochaPath": "./node_modules/.bin/mocha",
+    "mochaExplorer.require": "test/test-explorer-setup.js",
+    "mochaExplorer.env": {
+        "NODE_ENV": "test"
+    },
+    "mochaExplorer.logpanel": true,
+    "mochaExplorer.logLevel": "info",
+    "testExplorer.useNativeTesting": false,
+    "testExplorer.mergeSuites": true,
+    "testExplorer.showCodeLens": true,
+    "testExplorer.showOnRun": true,
+    "testExplorer.onStart": "reset",
+    "testExplorer.errorDecorationHover": true
+}

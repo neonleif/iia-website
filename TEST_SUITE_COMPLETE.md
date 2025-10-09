@@ -145,7 +145,7 @@ Spec Files: 1 passed, 0 failed, 1 total
 #### Home Page Keywords
 ```javascript
 // Core professional identity and client validation
-['Technical Tester', 'Test Automation Expert', 'Available for new projects',
+['Technical Tester', 'Test Automation Expert',
  'Unity', 'Nets', 'Laerdal', 'Start a Conversation']
 ```
 
