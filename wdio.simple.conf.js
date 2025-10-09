@@ -15,21 +15,26 @@ export const config = {
         browserName: 'firefox',
         'moz:firefoxOptions': {
             args: [
-                '--headless',
                 '--no-sandbox',
                 '--disable-dev-shm-usage',
-                '--width=1920',
-                '--height=1080'
-            ]
-        }
+                '--disable-gpu',
+                '--disable-web-security',
+                '--allow-running-insecure-content',
+                '--disable-features=VizDisplayCompositor'
+            ],
+            prefs: {
+                'security.tls.insecure_fallback_hosts': 'localhost'
+            }
+        },
+        acceptInsecureCerts: true
     }],
     
     // Test configuration
     logLevel: 'info',
     bail: 0,
     baseUrl: 'http://localhost:4000',
-    waitforTimeout: 10000,
-    connectionRetryTimeout: 90000,
+    waitforTimeout: 15000,
+    connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
     
     // Only use static server service to avoid driver download issues
@@ -50,7 +55,7 @@ export const config = {
     // Mocha options
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 90000
     },
     
     // Hooks

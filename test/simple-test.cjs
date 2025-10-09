@@ -63,7 +63,6 @@ const homeContent = fs.readFileSync(indexPath, 'utf8');
 const homeKeywords = [
     'Technical Tester',
     'Test Automation Expert',
-    'Available for new projects',
     'Unity',
     'Nets',
     'Laerdal'

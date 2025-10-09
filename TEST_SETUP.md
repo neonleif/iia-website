@@ -1,121 +1,115 @@
 # IIA Website Test Suite Setup
 
-En komplet test suite til IIA website implementeret med WebDriverIO og Mocha framework.
+A comprehensive test suite for the IIA website implemented with WebDriverIO and Mocha framework.
 
-## Test Suite Oversigt
+## 🚀 Test Execution Guide
 
-### 🎯 Test Scope
-- **Kontaktformular funktionalitet**: End-to-end test af alle formularfelter, validering og indsendelse
-- **Navigation og links**: Test af interne og externe links på tværs af sider
-- **Indhold validering**: Kontrol af tekst, overskrifter og nøgleord på alle sider
-- **Responsivt design**: Test på forskellige viewport størrelser
-- **Form validering**: Email format, påkrævede felter, dropdown valg
-
-### 🏗️ Arkitektur
-- **Page Object Model**: Separate klasser for hver side med XPath locators
-- **XPath selectors**: Robuste text-baserede og attribut-baserede selectors
-- **Mocha framework**: BDD-stil test syntax med describe/it blocks
-- **Static server**: Serverer den byggede site under test
-
-## Test Filer
-
-### Page Objects (`test/pageobjects/`)
-```
-Page.js           - Base page class med fælles utilities
-HomePage.js       - Home page model med hero section, services, clients
-ContactPage.js    - Contact page model med form functionality
-ExpertisePage.js  - Expertise page model med content sections
-```
-
-### Test Specifications (`test/specs/`)
-```
-home.test.js      - Home page indhold og navigation tests
-contact.test.js   - Kontaktformular funktionalitet og validering
-expertise.test.js - Expertise page indhold og struktur
-navigation.test.js - Cross-page navigation og konsistens
-```
-
-## Kontaktformular Test Coverage
-
-### ✅ Form Felter
-- **Navn felter**: firstName, lastName (påkrævet)
-- **Email**: Email format validering
-- **Firma**: Company field
-- **Projekt type**: Dropdown med test automation, manual testing, API testing, consulting
-- **Timeline**: Dropdown med immediate, 1 month, 2-3 months, flexible, planning
-- **Besked**: Textarea med projekt beskrivelse (påkrævet)
-
-### ✅ Form Validering
-```javascript
-// Test påkrævede felter
-it('should validate required fields', async () => {
-    const validationWorking = await ContactPage.checkRequiredFieldValidation();
-    expect(validationWorking).toBe(true);
-});
-
-// Test email format
-it('should validate email format', async () => {
-    await ContactPage.fillEmail('invalid-email');
-    await ContactPage.submitForm();
-    // Browser validation skal forhindre indsendelse
-});
-```
-
-### ✅ Form Funktionalitet
-- Form udfyldning med test data
-- Dropdown option validering
-- Form reset funktionalitet
-- Loading state under indsendelse
-- Honeypot spam beskyttelse
-
-## XPath Locator Strategi
-
-### Text-baserede Selectors
-```javascript
-heroTitle: '//h1[contains(text(), "Technical Tester")]'
-contactButton: '//a[@href="/contact" and contains(text(), "Start a Conversation")]'
-```
-
-### Attribut-baserede Selectors
-```javascript
-contactForm: '//form[@id="contact-form"]'
-emailInput: '//input[@id="email"]'
-submitButton: '//button[@id="submit-button"]'
-```
-
-### Hierarkiske Selectors
-```javascript
-testAutomationCard: '//h3[text()="Test Automation"]'
-linkedinLink: '//a[@href="https://linkedin.com/in/schweitz"]'
-```
-
-## Test Eksekution
-
-### 🚀 Hurtig Validering
+### Quick Validation
 ```bash
 npm run test:simple
 ```
-Kører struktur og indhold validering uden browser automation.
+Runs structure and content validation without browser automation.
 
-### 🧪 Fuld E2E Test Suite
+### Full E2E Test Suite
 ```bash
 npm run test:e2e
 ```
-Kører alle WebDriverIO tests med headless Chrome.
+Runs all WebDriverIO tests with headless Chrome.
 
-### 🎯 Specifik Test
+### Specific Test Files
 ```bash
 npm run test:e2e:specific test/specs/contact.test.js
+npm run test:e2e:specific test/specs/home.test.js
+npm run test:e2e:specific test/specs/expertise.test.js
+npm run test:e2e:specific test/specs/navigation.test.js
 ```
 
-### 👁️ Watch Mode
+### Watch Mode (Development)
 ```bash
 npm run test:e2e:watch
 ```
+Automatically runs tests when files change.
 
-## Test Data
+### Debug Mode
+```bash
+npm run test:e2e:debug
+```
+Runs tests with visible browser for debugging.
 
-### Kontaktformular Test Data
+## 🛠️ Extending the Test Suite
+
+### Adding New Tests
+1. Create new test file in `test/specs/`
+2. Import relevant page objects
+3. Follow existing test structure
+4. Use XPath locators for robustness
+
+Example new test file:
+```javascript
+const HomePage = require('../pageobjects/HomePage');
+
+describe('New Feature Tests', () => {
+    beforeEach(async () => {
+        await HomePage.open();
+    });
+
+    it('should test new functionality', async () => {
+        // Your test implementation
+        expect(await HomePage.isDisplayed()).toBe(true);
+    });
+});
+```
+
+### Creating New Page Objects
+1. Extend `Page.js` base class
+2. Define XPath selectors in `selectors` getter
+3. Implement page-specific methods
+4. Export as singleton
+
+Example new page object:
+```javascript
+const Page = require('./Page');
+
+class NewPage extends Page {
+    get selectors() {
+        return {
+            ...super.selectors,
+            newElement: '//div[@id="new-element"]',
+            newButton: '//button[contains(text(), "New Action")]'
+        };
+    }
+
+    async performNewAction() {
+        await $(this.selectors.newButton).click();
+    }
+
+    open() {
+        return super.open('/new-page');
+    }
+}
+
+module.exports = new NewPage();
+```
+
+### Test Data Management
+Create test data files in `test/testdata/`:
+```javascript
+// test/testdata/newFeature.js
+module.exports = {
+    validInput: {
+        field1: 'Test Value 1',
+        field2: 'Test Value 2'
+    },
+    invalidInput: {
+        field1: '',
+        field2: 'invalid@format'
+    }
+};
+```
+
+## 📋 Test Data
+
+### Contact Form Test Data
 ```javascript
 {
     firstName: 'Test',
@@ -140,9 +134,123 @@ npm run test:e2e:watch
 ['Core Competencies', 'Selenium WebDriver', 'ISTQB Foundation', 'AI-Enhanced Testing']
 ```
 
-## Browser Konfiguration
+### Browser Test Data
+```javascript
+// Viewport sizes for responsive testing
+viewports: {
+    mobile: { width: 375, height: 667 },
+    tablet: { width: 768, height: 1024 },
+    desktop: { width: 1920, height: 1080 }
+}
+```
 
-### Chrome (Standard)
+## Test Suite Overview
+
+### 🎯 Test Scope
+- **Contact form functionality**: End-to-end testing of all form fields, validation and submission
+- **Navigation and links**: Testing internal and external links across pages
+- **Content validation**: Verification of text, headings and keywords on all pages
+- **Responsive design**: Testing across different viewport sizes
+- **Form validation**: Email format, required fields, dropdown selections
+
+### 🏗️ Architecture
+- **Page Object Model**: Separate classes for each page with XPath locators
+- **XPath selectors**: Robust text-based and attribute-based selectors
+- **Mocha framework**: BDD-style test syntax with describe/it blocks
+- **Static server**: Serves the built site under test Suite Setup
+
+En komplet test suite til IIA website implementeret med WebDriverIO og Mocha framework.
+
+## Test Suite Oversigt
+
+### 🎯 Test Scope
+- **Kontaktformular funktionalitet**: End-to-end test af alle formularfelter, validering og indsendelse
+- **Navigation og links**: Test af interne og externe links på tværs af sider
+- **Indhold validering**: Kontrol af tekst, overskrifter og nøgleord på alle sider
+- **Responsivt design**: Test på forskellige viewport størrelser
+- **Form validering**: Email format, påkrævede felter, dropdown valg
+
+### 🏗️ Arkitektur
+- **Page Object Model**: Separate klasser for hver side med XPath locators
+- **XPath selectors**: Robuste text-baserede og attribut-baserede selectors
+- **Mocha framework**: BDD-stil test syntax med describe/it blocks
+- **Static server**: Serverer den byggede site under test
+
+## Test Files
+
+### Page Objects (`test/pageobjects/`)
+```
+Page.js           - Base page class with common utilities
+HomePage.js       - Home page model with hero section, services, clients
+ContactPage.js    - Contact page model with form functionality
+ExpertisePage.js  - Expertise page model with content sections
+```
+
+### Test Specifications (`test/specs/`)
+```
+home.test.js      - Home page content and navigation tests
+contact.test.js   - Contact form functionality and validation
+expertise.test.js - Expertise page content and structure
+navigation.test.js - Cross-page navigation and consistency
+```
+
+## Contact Form Test Coverage
+
+### ✅ Form Fields
+- **Name fields**: firstName, lastName (required)
+- **Email**: Email format validation
+- **Company**: Company field
+- **Project type**: Dropdown with test automation, manual testing, API testing, consulting
+- **Timeline**: Dropdown with immediate, 1 month, 2-3 months, flexible, planning
+- **Message**: Textarea with project description (required)
+
+### ✅ Form Validation
+```javascript
+// Test required fields
+it('should validate required fields', async () => {
+    const validationWorking = await ContactPage.checkRequiredFieldValidation();
+    expect(validationWorking).toBe(true);
+});
+
+// Test email format
+it('should validate email format', async () => {
+    await ContactPage.fillEmail('invalid-email');
+    await ContactPage.submitForm();
+    // Browser validation should prevent submission
+});
+```
+
+### ✅ Form Functionality
+- Form filling with test data
+- Dropdown option validation
+- Form reset functionality
+- Loading state during submission
+- Honeypot spam protection
+
+## XPath Locator Strategy
+
+### Text-based Selectors
+```javascript
+heroTitle: '//h1[contains(text(), "Technical Tester")]'
+contactButton: '//a[@href="/contact" and contains(text(), "Start a Conversation")]'
+```
+
+### Attribute-based Selectors
+```javascript
+contactForm: '//form[@id="contact-form"]'
+emailInput: '//input[@id="email"]'
+submitButton: '//button[@id="submit-button"]'
+```
+
+### Hierarchical Selectors
+```javascript
+testAutomationCard: '//h3[text()="Test Automation"]'
+linkedinLink: '//a[@href="https://linkedin.com/in/schweitz"]'
+```
+
+## Browser Configuration
+
+### Chrome (Default)
 ```javascript
 capabilities: [{
     browserName: 'chrome',
@@ -162,7 +270,7 @@ capabilities: [{
 }]
 ```
 
-## Test Resultater
+## Test Results
 
 ### ✅ Simple Test Output
 ```
@@ -178,29 +286,42 @@ capabilities: [{
 ```
 
 ### 📊 WDIO Test Coverage
-- **107 test cases** på tværs af 4 test filer
-- **Form validering**: 12 tests
+- **107 test cases** across 4 test files
+- **Form validation**: 12 tests
 - **Navigation**: 8 tests  
-- **Content validering**: 25 tests
-- **Responsivt design**: 6 tests
+- **Content validation**: 25 tests
+- **Responsive design**: 6 tests
 
-## Fejlfinding
+## Troubleshooting
 
 ### Browser Driver Issues
-Hvis ChromeDriver download fejler, brug Firefox konfiguration:
+If ChromeDriver download fails, use Firefox configuration:
 ```bash
 wdio wdio.simple.conf.js
 ```
 
-### Port Konflikter  
-Static server kører på port 4000. Skift i `wdio.conf.js` hvis nødvendigt.
+### Port Conflicts  
+Static server runs on port 4000. Change in `wdio.conf.js` if necessary.
 
 ### Timeout Issues
-Juster `waitforTimeout` og `connectionRetryTimeout` i konfiguration.
+Adjust `waitforTimeout` and `connectionRetryTimeout` in configuration.
 
-## Integration med CI/CD
+### Common Solutions
+```bash
+# Clear node modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
 
-Test suiten er konfigureret til at køre i CI/CD miljøer:
+# Run with Firefox instead of Chrome
+BROWSER=firefox npm run test:e2e
+
+# Increase timeout for slow environments
+TIMEOUT=30000 npm run test:e2e
+```
+
+## CI/CD Integration
+
+The test suite is configured to run in CI/CD environments:
 - Headless browser mode
 - No sandbox for Docker containers  
 - Static file serving
@@ -211,29 +332,31 @@ Test suiten er konfigureret til at køre i CI/CD miljøer:
 - name: Run E2E Tests
   run: |
     npm install
+    npm run build
+    npm run test:simple
     npm run test:e2e
 ```
 
-## Udvidelse af Test Suite
+### Docker Integration
+```dockerfile
+# Install Chrome for testing
+RUN apt-get update && apt-get install -y \
+    chromium-browser \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
-### Tilføjelse af Nye Tests
-1. Opret ny test fil i `test/specs/`
-2. Importer relevante page objects
-3. Følg eksisterende test struktur
-4. Brug XPath locators for robusthed
+# Set Chrome path
+ENV CHROME_BIN=/usr/bin/chromium-browser
+```
 
-### Nye Page Objects
-1. Extend `Page.js` base class
-2. Definer XPath selectors i `selectors` getter
-3. Implementer page-specifikke metoder
-4. Eksporter som singleton
+## Conclusion
 
-## Konklusion
+This test suite provides comprehensive coverage of IIA website functionality with focus on:
+- ✅ Contact form end-to-end testing
+- ✅ XPath-based robust selectors  
+- ✅ Page Object Model architecture
+- ✅ Responsive design validation
+- ✅ Cross-browser compatibility
+- ✅ CI/CD integration ready
 
-Denne test suite giver omfattende dækning af IIA website funktionalitet med fokus på:
-- ✅ Kontaktformular end-to-end testing
-- ✅ XPath-baserede robuste selectors  
-- ✅ Page Object Model arkitektur
-- ✅ Responsivt design validering
-- ✅ Cross-browser kompatibilitet
-- ✅ CI/CD integration klar
+The test suite is production-ready and can be easily extended with additional test cases as your website grows.

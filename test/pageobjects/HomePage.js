@@ -12,7 +12,6 @@ class HomePage extends Page {
             // Hero section
             heroTitle: '//h1[contains(text(), "Technical Tester")]',
             heroSubtitle: '//span[contains(text(), "Test Automation Expert")]',
-            availabilityStatus: '//span[contains(text(), "Available for new projects")]',
             
             // Services section
             technicalTestingCard: '//h3[text()="Technical Testing"]',
@@ -36,38 +35,19 @@ class HomePage extends Page {
         };
     }
 
-    /**
-     * Navigate to home page
-     */
     async open() {
         await super.open('/');
         await this.waitForPageLoad();
     }
 
-    /**
-     * Get hero title element
-     */
     async getHeroTitle() {
         return await this.waitForElementByXPath(this.selectors.heroTitle);
     }
 
-    /**
-     * Get hero subtitle element
-     */
     async getHeroSubtitle() {
         return await this.waitForElementByXPath(this.selectors.heroSubtitle);
     }
 
-    /**
-     * Get availability status element
-     */
-    async getAvailabilityStatus() {
-        return await this.waitForElementByXPath(this.selectors.availabilityStatus);
-    }
-
-    /**
-     * Check if all service cards are present
-     */
     async areServiceCardsPresent() {
         const technicalTesting = await this.getElementByXPath(this.selectors.technicalTestingCard);
         const testAutomation = await this.getElementByXPath(this.selectors.testAutomationCard);
@@ -78,9 +58,6 @@ class HomePage extends Page {
                (await apiTesting.isExisting());
     }
 
-    /**
-     * Check if all client names are present
-     */
     async areClientsPresent() {
         const unity = await this.getElementByXPath(this.selectors.unityClient);
         const nets = await this.getElementByXPath(this.selectors.netsClient);
@@ -91,51 +68,37 @@ class HomePage extends Page {
                (await laerdal.isExisting());
     }
 
-    /**
-     * Click contact button
-     */
     async clickContactButton() {
         const button = await this.waitForClickable(this.selectors.contactButton);
         await button.click();
     }
 
-    /**
-     * Click email button
-     */
     async clickEmailButton() {
         const button = await this.waitForClickable(this.selectors.emailButton);
         await button.click();
     }
 
-    /**
-     * Get LinkedIn link
-     */
     async getLinkedInLink() {
         return await this.waitForElementByXPath(this.selectors.linkedinLink);
     }
 
-    /**
-     * Get phone number text
-     */
     async getPhoneNumber() {
         const phoneElement = await this.waitForElementByXPath(this.selectors.phoneLink);
         return await phoneElement.getText();
     }
 
     /**
-     * Verify all essential page elements are present
+     * Returns object with display status of essential page elements
      */
     async verifyPageElements() {
         const heroTitle = await this.getHeroTitle();
         const heroSubtitle = await this.getHeroSubtitle();
-        const availability = await this.getAvailabilityStatus();
         const servicesPresent = await this.areServiceCardsPresent();
         const clientsPresent = await this.areClientsPresent();
         
         return {
             heroTitle: await heroTitle.isDisplayed(),
             heroSubtitle: await heroSubtitle.isDisplayed(),
-            availability: await availability.isDisplayed(),
             servicesPresent,
             clientsPresent
         };

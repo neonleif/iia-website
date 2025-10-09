@@ -64,24 +64,15 @@ class ExpertisePage extends Page {
         };
     }
 
-    /**
-     * Navigate to expertise page
-     */
     async open() {
         await super.open('/expertise');
         await this.waitForPageLoad();
     }
 
-    /**
-     * Get page title element
-     */
     async getPageTitle() {
         return await this.waitForElementByXPath(this.selectors.pageTitle);
     }
 
-    /**
-     * Check if core competencies section is present
-     */
     async areCoreCompetenciesPresent() {
         const testAutomation = await this.getElementByXPath(this.selectors.testAutomationCard);
         const technicalTesting = await this.getElementByXPath(this.selectors.technicalTestingCard);
@@ -94,9 +85,6 @@ class ExpertisePage extends Page {
                (await toolsTech.isExisting());
     }
 
-    /**
-     * Check if methodologies section is present
-     */
     async areMethodologiesPresent() {
         const testingMethods = await this.getElementByXPath(this.selectors.testingMethodsCard);
         const developmentIDEs = await this.getElementByXPath(this.selectors.developmentIDEsCard);
@@ -107,9 +95,6 @@ class ExpertisePage extends Page {
                (await testFrameworks.isExisting());
     }
 
-    /**
-     * Check if industry experience section is present
-     */
     async isIndustryExperiencePresent() {
         const financial = await this.getElementByXPath(this.selectors.financialServicesCard);
         const healthcare = await this.getElementByXPath(this.selectors.healthcareCard);
@@ -120,9 +105,6 @@ class ExpertisePage extends Page {
                (await gaming.isExisting());
     }
 
-    /**
-     * Check if certifications are present
-     */
     async areCertificationsPresent() {
         const cat = await this.getElementByXPath(this.selectors.catCertification);
         const istqb = await this.getElementByXPath(this.selectors.istqbCertification);
@@ -130,9 +112,6 @@ class ExpertisePage extends Page {
         return (await cat.isExisting()) && (await istqb.isExisting());
     }
 
-    /**
-     * Check if AI section is present
-     */
     async isAISectionPresent() {
         const aiHeading = await this.getElementByXPath(this.selectors.aiHeading);
         const aiPlatforms = await this.getElementByXPath(this.selectors.aiPlatformsCard);
@@ -143,9 +122,6 @@ class ExpertisePage extends Page {
                (await aiApplications.isExisting());
     }
 
-    /**
-     * Check if technology icons are present
-     */
     async areTechnologyIconsPresent() {
         const csharp = await this.getElementByXPath(this.selectors.csharpIcon);
         const java = await this.getElementByXPath(this.selectors.javaIcon);
@@ -156,24 +132,18 @@ class ExpertisePage extends Page {
                (await selenium.isExisting());
     }
 
-    /**
-     * Click get in touch button
-     */
     async clickGetInTouchButton() {
         const button = await this.waitForClickable(this.selectors.getInTouchButton);
         await button.click();
     }
 
-    /**
-     * Click email directly button
-     */
     async clickEmailDirectlyButton() {
         const button = await this.waitForClickable(this.selectors.emailDirectlyButton);
         await button.click();
     }
 
     /**
-     * Verify page structure and content
+     * Returns object with presence status of all major page sections
      */
     async verifyPageStructure() {
         const coreCompetencies = await this.areCoreCompetenciesPresent();

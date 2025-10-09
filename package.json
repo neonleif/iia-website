@@ -10,7 +10,8 @@
     "test:simple": "npm run build && node test/simple-test.cjs",
     "test:e2e": "npm run build && wdio wdio.conf.js",
     "test:e2e:watch": "npm run build && wdio wdio.conf.js --watch",
-    "test:e2e:specific": "npm run build && wdio wdio.conf.js --spec"
+    "test:e2e:specific": "npm run build && wdio wdio.conf.js --spec",
+    "test:explorer": "mocha test/specs/simple.test.js"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",
@@ -28,7 +29,7 @@
     "@wdio/spec-reporter": "^9.19.2",
     "@wdio/static-server-service": "^9.19.2",
     "astro-icon": "^1.1.5",
-    "expect": "^30.1.2",
+    "chai": "^6.2.0",
     "selenium-standalone": "^10.0.2"
   }
 }

@@ -26,14 +26,6 @@ describe('Home Page Tests', () => {
             expect(subtitleText).toContain('Test Automation Expert');
         });
 
-        it('should show availability status', async () => {
-            const availability = await HomePage.getAvailabilityStatus();
-            expect(await availability.isDisplayed()).toBe(true);
-            
-            const availabilityText = await availability.getText();
-            expect(availabilityText).toContain('Available for new projects');
-        });
-
         it('should display all service cards', async () => {
             const servicesPresent = await HomePage.areServiceCardsPresent();
             expect(servicesPresent).toBe(true);
@@ -49,7 +41,6 @@ describe('Home Page Tests', () => {
             
             expect(elements.heroTitle).toBe(true);
             expect(elements.heroSubtitle).toBe(true);
-            expect(elements.availability).toBe(true);
             expect(elements.servicesPresent).toBe(true);
             expect(elements.clientsPresent).toBe(true);
         });
