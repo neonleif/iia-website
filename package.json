@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "test:simple": "npm run build && node test/simple-test.cjs",
+    "test:mobile-menu": "npm run build && node test/manual-mobile-menu-test.cjs",
     "test:e2e": "npm run build && wdio wdio.conf.js",
     "test:e2e:watch": "npm run build && wdio wdio.conf.js --watch",
     "test:e2e:specific": "npm run build && wdio wdio.conf.js --spec",
